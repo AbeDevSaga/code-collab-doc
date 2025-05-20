@@ -11,34 +11,41 @@ export default function ContentNavigation({
   next?: { title: string; href: string };
 }) {
   return (
-    <div className="flex justify-between mt-4 w-full border-t border-gray-200 dark:border-gray-700 pt-12">
+    <div className="flex justify-between items-center mt-4 w-full pt-12">
       {previous ? (
-        <Link
-          href={previous.href}
-          className="flex items-center gap-2 px-4 py-2 rounded-md text-red-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        <Button 
+          asChild
+          variant="ghost"
+          className="hover:bg-gray-100 dark:hover:bg-gray-800 px-4 py-4 flex-1 max-w-[35%]"
         >
-            <Button>
-          <FaChevronLeft className="h-4 w-4" />
-          <span className="font-medium">{previous.title}</span>
-          </Button>
-        </Link>
+          <Link 
+            href={previous.href} 
+            className="flex items-center gap-2 justify-start w-full"
+          >
+            <FaChevronLeft className="h-4 w-4" />
+            <span className="font-medium text-left truncate">{previous.title}</span>
+          </Link>
+        </Button>
       ) : (
-        <div />
+        <div className="flex-1 max-w-[45%]" />
       )}
       
       {next ? (
-        <Link
-          href={next.href}
-          className="flex items-center gap-2 px-4 py-2 rounded-md text-red-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        <Button 
+          asChild
+          variant="ghost"
+          className="hover:bg-gray-100 dark:hover:bg-gray-800 px-4 py-4 flex-1 max-w-[35%]"
         >
-            <Button>
-          <span className="font-medium">{next.title}</span>
-
-          <FaChevronRight className="h-4 w-4" />
-          </Button>
-        </Link>
+          <Link 
+            href={next.href} 
+            className="flex items-center gap-2 justify-end w-full"
+          >
+            <span className="font-medium text-right truncate">{next.title}</span>
+            <FaChevronRight className="h-4 w-4" />
+          </Link>
+        </Button>
       ) : (
-        <div />
+        <div className="flex-1 max-w-[45%]" />
       )}
     </div>
   );

@@ -1,5 +1,6 @@
-import React from 'react';
-import { videoCallDocs } from '../../Component/Documentations/videotype';
+import React from "react";
+import { videoCallDocs } from "../../Component/Documentations/videotype";
+import ContentNavigation from "../../Component/Navigation";
 
 const VideoCallServicePage = () => {
   return (
@@ -10,17 +11,17 @@ const VideoCallServicePage = () => {
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
               {section.title}
             </h1>
-            
+
             <p className="text-lg mt-4 text-gray-600 dark:text-gray-300">
               {section.description}
             </p>
-            
+
             {section.content && (
               <p className="text-gray-700 dark:text-gray-300">
                 {section.content}
               </p>
             )}
-            
+
             {section.featureList && (
               <div className="mt-6">
                 <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
@@ -29,10 +30,12 @@ const VideoCallServicePage = () => {
                 <ul className="list-disc pl-6 mt-4 space-y-3 text-gray-700 dark:text-gray-300">
                   {section.featureList.items.map((item, idx) => (
                     <li key={idx} className="[&>:first-child]:font-medium">
-                      {item.split(':').length > 1 ? (
+                      {item.split(":").length > 1 ? (
                         <>
-                          <span className="font-medium">{item.split(':')[0]}:</span>
-                          {item.split(':')[1]}
+                          <span className="font-medium">
+                            {item.split(":")[0]}:
+                          </span>
+                          {item.split(":")[1]}
                         </>
                       ) : (
                         item
@@ -42,7 +45,7 @@ const VideoCallServicePage = () => {
                 </ul>
               </div>
             )}
-            
+
             {section.securitySection && (
               <div className="mt-8 p-6 ">
                 <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
@@ -55,7 +58,7 @@ const VideoCallServicePage = () => {
                 </ul>
               </div>
             )}
-            
+
             {section.technicalDetails && (
               <div className="mt-8 p-6">
                 <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
@@ -68,7 +71,7 @@ const VideoCallServicePage = () => {
                 </ul>
               </div>
             )}
-            
+
             {section.benefits && (
               <div className="mt-8 p-6 ">
                 <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
@@ -81,10 +84,12 @@ const VideoCallServicePage = () => {
                 </ul>
               </div>
             )}
-            
-           
           </section>
         ))}
+        <ContentNavigation
+          previous={{ title: "Chat", href: "/docs/services/chat" }}
+          next={{ title: "Live Editor", href: "/docs/services/liveeditor" }}
+        />
       </div>
     </div>
   );

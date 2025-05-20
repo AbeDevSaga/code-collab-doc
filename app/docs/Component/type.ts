@@ -6,10 +6,11 @@ interface DocItem {
 }
 
 export interface DocTextFormat {
+  id: string;
   title: string;
   description?: string;
   content: string;
-  subtitle?:
+  subtitle:
     {
       title: string;
       description: string;
@@ -59,8 +60,59 @@ export interface DocTextFormat {
     title: string;
     items: string[];
   };
+  features?: {
+    title: string;
+    description: string;
+    details: string[];
+  }[];
+  
+  technical?: {
+    title: string;
+    items: string[];
+
+  };
+
+  integrations?: {
+    title: string;
+    items: string[];
+  };
+  endpoints?: {
+    title: string;
+    items: [string, string][]; // [endpoint, description]
+  };
+  
+  // For code examples
+  examples?: {
+    title: string;
+    items: {
+      title: string;
+      code: string;
+    }[];
+  };
+  
+  // For authentication flows
+  authentication?: {
+    title: string;
+    steps: string[];
+  };
+  
+
+  commands?: {
+    title: string;
+    items: [string, string][]; 
+  };
 }
 
+export interface TabBarProps {
+  logo?: React.ReactNode;
+  appName?: string;
+  searchResults?: Array<{
+    id: string;
+    title: string;
+    href: string;
+  }>;
+  onSearch?: (query: string) => void;
+}
 
 export interface DocsStructure {
   id: string;

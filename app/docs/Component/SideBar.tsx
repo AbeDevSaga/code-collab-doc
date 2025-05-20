@@ -42,12 +42,12 @@ export default function Sidebar({ className = "" }: SidebarProps) {
             {
               id: "basic-setup",
               title: "Basic Setup",
-              path: "/docs/configuration/basic",
+              path: "/docs/configuration/basicsetup",
             },
             {
-              id: "advanced-options",
+              id: "advancedoptions",
               title: "Advanced Options",
-              path: "/docs/configuration/advanced",
+              path: "/docs/configuration/advancedoption",
             },
           ],
         },
@@ -86,9 +86,9 @@ export default function Sidebar({ className = "" }: SidebarProps) {
           path: "/docs/services/projectmanagement",
         },
         {
-          id: "version-control",
+          id: "versioncontrol",
           title: "Version Control",
-          path: "/docs/services/version-control",
+          path: "/docs/services/versioncontrol",
         },
         { id: "docker", title: "Docker", path: "/docs/services/docker" },
         { id: "cli", title: "CLI", path: "/docs/services/cli" },
@@ -98,8 +98,8 @@ export default function Sidebar({ className = "" }: SidebarProps) {
       id: "api-reference",
       title: "API Reference",
       items: [
-        { id: "core-api", title: "Core API", path: "/docs/api/core" },
-        { id: "auth-api", title: "Authentication", path: "/docs/api/auth" },
+        { id: "core-api", title: "Core API", path: "/docs/api/APIReference/core" },
+        { id: "auth-api", title: "Authentication", path: "/docs/api/APIReference/auth" },
         {
           id: "error-handling",
           title: "Error Handling",

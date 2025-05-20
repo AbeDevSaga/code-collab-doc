@@ -1,5 +1,6 @@
 import React from "react";
 import { projectManagementDocs } from "../../Component/Documentations/projecttype";
+import ContentNavigation from "../../Component/Navigation";
 
 const ProjectManagementPage = () => {
   return (
@@ -10,11 +11,11 @@ const ProjectManagementPage = () => {
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
               {section.title}
             </h1>
-            
+
             <p className="text-lg text-gray-600 mt-4 dark:text-gray-300">
               {section.description}
             </p>
-            
+
             {section.content && (
               <p className="text-gray-700 dark:text-gray-300">
                 {section.content}
@@ -29,10 +30,12 @@ const ProjectManagementPage = () => {
                 <ul className="list-disc pl-6 mt-4 space-y-3 text-gray-700 dark:text-gray-300">
                   {section.featureList.items.map((item, idx) => (
                     <li key={idx} className="[&>:first-child]:font-medium">
-                      {item.split(':').length > 1 ? (
+                      {item.split(":").length > 1 ? (
                         <>
-                          <span className="font-medium">{item.split(':')[0]}:</span>
-                          {item.split(':')[1]}
+                          <span className="font-medium">
+                            {item.split(":")[0]}:
+                          </span>
+                          {item.split(":")[1]}
                         </>
                       ) : (
                         item
@@ -96,6 +99,16 @@ const ProjectManagementPage = () => {
             )}
           </section>
         ))}
+        <ContentNavigation
+          previous={{
+            title: "File Management",
+            href: "/docs/services/filemanagement",
+          }}
+          next={{
+            title: "Version Control",
+            href: "/docs/services/versioncontrol",
+          }}
+        />
       </div>
     </div>
   );

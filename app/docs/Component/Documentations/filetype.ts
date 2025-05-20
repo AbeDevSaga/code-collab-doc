@@ -5,7 +5,7 @@ export const fileManagementDocs: DocTextFormat[] = [
     title: "File Management Service",
     description: "The File Management service in Code Collab enables users to upload, browse, organize, and manage project files directly within the platform.",
     content: "This service is seamlessly integrated into the development workspace, allowing developers to view, edit, move, and version files without switching tools or breaking their workflow.",
-    
+
     featureList: {
       title: " Key Features",
       items: [
@@ -19,7 +19,7 @@ export const fileManagementDocs: DocTextFormat[] = [
         "Search & Filter: Find files by name, extension, or content"
       ]
     },
-    
+
     securitySection: {
       title: " Security & Access Control",
       items: [
@@ -29,7 +29,7 @@ export const fileManagementDocs: DocTextFormat[] = [
         "Encrypted Storage: At rest and in transit encryption"
       ]
     },
-    
+
     technicalDetails: {
       title: " Technical Details",
       items: [
@@ -39,7 +39,7 @@ export const fileManagementDocs: DocTextFormat[] = [
         "Auto Syncing: Real-time editor-file system synchronization"
       ]
     },
-    
+
     benefits: {
       title: " Benefits",
       items: [
@@ -48,7 +48,8 @@ export const fileManagementDocs: DocTextFormat[] = [
         "Real-time collaboration with task integration",
         "Simplified workflows with versioning"
       ]
-    }
+    },
+    subtitle: []
   }
 ];
 

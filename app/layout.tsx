@@ -32,7 +32,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
           {/* AppBar at the very top */}
-          <AppBar className="fixed bg-transparent top-0 left-0 right-0 z-50 h-16" />
+          <AppBar className="fixed top-0 left-0 right-0 z-50 h-16" />
           
           {/* Main container below AppBar */}
           <div className="flex flex-col min-h-screen"> 
@@ -46,12 +46,15 @@ export default function RootLayout({
               <main className="flex-1 top-2 min-h-[calc(100vh-16px)]">
                 <div className="p-2 flex flex-col max-w-8xl mx-auto w-full">
                   {children}
-                  <ContentNavigation/>
+                  
                 </div>
+               
               </main>
+              
             </div>
             
             <Footer className="border-t" />
+                <ContentNavigation/>
           </div>
         </ThemeProvider>
       </body>

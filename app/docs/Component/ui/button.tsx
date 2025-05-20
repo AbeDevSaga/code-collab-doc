@@ -1,4 +1,4 @@
-// docs/Component/ui/button.tsx
+// ui/button.tsx
 import { forwardRef } from "react";
 import Link from "next/link";
 
@@ -23,6 +23,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         <Link
           href={href}
           className={`${baseClasses} ${variantClasses} ${className}`}
+          {...props}
         >
           {children}
         </Link>

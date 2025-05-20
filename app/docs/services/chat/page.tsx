@@ -1,4 +1,5 @@
 import { chatServiceDocs } from "../../Component/Documentations/chattype";
+import ContentNavigation from "../../Component/Navigation";
 
 const ChatServicePage = () => {
   return (
@@ -9,17 +10,17 @@ const ChatServicePage = () => {
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
               {section.title}
             </h1>
-            
+
             <p className="text-lg mt-4 text-gray-600 dark:text-gray-300">
               {section.description}
             </p>
-            
+
             {section.content && (
               <p className="text-gray-700 dark:text-gray-300">
                 {section.content}
               </p>
             )}
-            
+
             {section.featureList && (
               <div className="mt-6">
                 <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
@@ -28,10 +29,12 @@ const ChatServicePage = () => {
                 <ul className="list-disc pl-6 mt-4 space-y-3 text-gray-700 dark:text-gray-300">
                   {section.featureList.items.map((item, idx) => (
                     <li key={idx} className="[&>:first-child]:font-medium">
-                      {item.split(':').length > 1 ? (
+                      {item.split(":").length > 1 ? (
                         <>
-                          <span className="font-medium">{item.split(':')[0]}:</span>
-                          {item.split(':')[1]}
+                          <span className="font-medium">
+                            {item.split(":")[0]}:
+                          </span>
+                          {item.split(":")[1]}
                         </>
                       ) : (
                         item
@@ -41,7 +44,7 @@ const ChatServicePage = () => {
                 </ul>
               </div>
             )}
-            
+
             {section.securitySection && (
               <div className="mt-8 p-6">
                 <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
@@ -54,7 +57,7 @@ const ChatServicePage = () => {
                 </ul>
               </div>
             )}
-            
+
             {section.technicalDetails && (
               <div className="mt-8">
                 <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
@@ -67,7 +70,7 @@ const ChatServicePage = () => {
                 </ul>
               </div>
             )}
-            
+
             {section.benefits && (
               <div className="mt-8 p-6">
                 <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
@@ -82,6 +85,13 @@ const ChatServicePage = () => {
             )}
           </section>
         ))}
+        <ContentNavigation
+          previous={{
+            title: "Authentication",
+            href: "/docs/services/authentication",
+          }}
+          next={{ title: "Video Call", href: "/docs/services/videocall" }}
+        />
       </div>
     </div>
   );
