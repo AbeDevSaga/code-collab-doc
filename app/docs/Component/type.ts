@@ -104,8 +104,7 @@ export interface DocTextFormat {
 }
 
 export interface TabBarProps {
-  logo?: React.ReactNode;
-  appName?: string;
+  logo?: React.Component;
   searchResults?: Array<{
     id: string;
     title: string;
@@ -124,7 +123,7 @@ export interface SidebarProps {
   className?: string;
 }
 export interface TabBarProps {
-  logo?: React.ReactNode;
+  logo?: React.Component;
   appName?: string;
   className?: string;
 }

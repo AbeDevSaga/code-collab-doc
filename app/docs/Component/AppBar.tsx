@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FiSearch, FiX } from 'react-icons/fi';
 import { TabBarProps } from './type';
+import Logo from './Logo';
 
 export default function TabBar({ 
   logo, 
-  appName = 'CodeCollab',
   searchResults = [], // Optional: pass search results from parent
   onSearch, // Optional: callback for custom search handling
 }: TabBarProps) {
@@ -58,14 +58,7 @@ export default function TabBar({
           {/* Left side - Logo and App Name */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              {logo || (
-                <div className="w-8 h-8 rounded-md bg-gray-600 flex items-center justify-center text-white font-bold">
-                  {appName.charAt(0)}
-                </div>
-              )}
-              <span className="text-xl font-semibold text-gray-300 hidden sm:inline-block">
-                {appName}
-              </span>
+              <Logo/>
             </Link>
           </div>
 

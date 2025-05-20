@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "./docs/context/ThemeContext";
 import AppBar from "./docs/Component/AppBar";
 import SideBar from "./docs/Component/SideBar";
 import Footer from "./docs/Component/Footer";
 import ContentNavigation from "./docs/Component/Navigation";
+import { ThemeProvider } from "./docs/Component/ThemeSelector";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,32 +29,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <ThemeProvider>
           {/* AppBar at the very top */}
           <AppBar className="fixed top-0 left-0 right-0 z-50 h-16" />
-          
+
           {/* Main container below AppBar */}
-          <div className="flex flex-col min-h-screen"> 
-            
+          <div className="flex flex-col min-h-screen">
             {/* Sidebar and content row */}
             <div className="flex flex-1">
               {/* Fixed SideBar */}
               <SideBar className="fixed left-0 top-16 bottom-0 w-64" />
-              
+
               {/* Main content area */}
               <main className="flex-1 top-2 min-h-[calc(100vh-16px)]">
                 <div className="p-2 flex flex-col max-w-8xl mx-auto w-full">
                   {children}
-                  
                 </div>
-               
               </main>
-              
             </div>
-            
+
             <Footer className="border-t" />
-                <ContentNavigation/>
+            <ContentNavigation />
           </div>
         </ThemeProvider>
       </body>

@@ -1,55 +1,30 @@
-"use client";
+// components/ThemeSelector.tsx
+'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import { FiSun, FiMoon, FiMonitor } from 'react-icons/fi';
+import { useTheme } from '../Component/ThemeSelector';
 
-type Theme = 'light' | 'dark' | 'system';
-type ThemeContextType = {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
-};
+export default function ThemeSelector() {
+  const { theme, setTheme } = useTheme();
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('system');
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Load theme preference from localStorage
-      const savedTheme = localStorage.getItem('theme') as Theme | null;
-      const initialTheme = savedTheme || 'system';
-      setTheme(initialTheme);
-      applyTheme(initialTheme);
-    }
-  }, []);
-
-  const applyTheme = (newTheme: Theme) => {
-    const root = document.documentElement;
-    
-    if (newTheme === 'system') {
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      root.classList.toggle('dark', systemPrefersDark);
-    } else {
-      root.classList.toggle('dark', newTheme === 'dark');
-    }
-    
-    localStorage.setItem('theme', newTheme);
-  };
-
-  const handleSetTheme = (newTheme: Theme) => {
-    setTheme(newTheme);
-    applyTheme(newTheme);
-  };
+  const buttonStyle = (selected: boolean) =>
+    `flex-1 flex items-center justify-center py-2 px-3 rounded ${
+      selected
+        ? 'bg-gray-200 dark:bg-gray-700 text-black dark:text-white'
+        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+    }`;
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme: handleSetTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <div className="flex space-x-2 bg-gray-100 dark:bg-gray-800 p-2 rounded">
+      <button onClick={() => setTheme('light')} className={buttonStyle(theme === 'light')}>
+        <FiSun className="mr-2" /> Light
+      </button>
+      <button onClick={() => setTheme('dark')} className={buttonStyle(theme === 'dark')}>
+        <FiMoon className="mr-2" /> Dark
+      </button>
+      <button onClick={() => setTheme('system')} className={buttonStyle(theme === 'system')}>
+        <FiMonitor className="mr-2" /> System
+      </button>
+    </div>
   );
-}
-
-export function useTheme() {
-  const context = useContext(ThemeContext);
- 
-  return context;
 }

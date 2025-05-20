@@ -4,7 +4,6 @@ import Link from "next/link";
 import { FiChevronDown, FiChevronRight } from "react-icons/fi";
 import { usePathname } from "next/navigation";
 import { SidebarProps } from "./type";
-import ThemeSelector from "./ThemeSelector";
 
 export default function Sidebar({ className = "" }: SidebarProps) {
   const [expandedSections, setExpandedSections] = useState<
@@ -198,7 +197,7 @@ export default function Sidebar({ className = "" }: SidebarProps) {
         </div>
       ))}
       <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-        <ThemeSelector />
+        {/* <ThemeSelector /> */}
       </div>
     </nav>
   );
