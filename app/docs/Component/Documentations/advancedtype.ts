@@ -1,6 +1,6 @@
 import { DocTextFormat } from "../type";
 
-export const advancedSetupDocs: DocTextFormat[] = [
+export const advancedSetupDocs = [
   {
     title: "Advanced Setup Options",
     description: "Customize, self-host, and extend Code Collab for enterprise and devops needs",
