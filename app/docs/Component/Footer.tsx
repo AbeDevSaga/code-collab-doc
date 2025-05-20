@@ -5,7 +5,6 @@ import Logo from './Logo';
 
 
 export default function Footer({
-  logo,
   companyName = 'CodeCollab',
   className = '',
 }: BottomBarProps) {

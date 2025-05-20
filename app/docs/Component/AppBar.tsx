@@ -6,8 +6,7 @@ import { FiSearch, FiX } from 'react-icons/fi';
 import { TabBarProps } from './type';
 import Logo from './Logo';
 
-export default function TabBar({ 
-  logo, 
+export default function TabBar({  
   searchResults = [], // Optional: pass search results from parent
   onSearch, // Optional: callback for custom search handling
 }: TabBarProps) {
